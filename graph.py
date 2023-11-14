@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Notas dos alunos e total de questões
-notas = [34, 42, 31, 33, 39, 50, 37, 35, 32, 32, 35, 31, 40, 35, 54, 40, 37, 39, 40, 42, 27, 36, 26, 27]
+notas = [34, 42, 31, 33, 39, 50, 37, 35, 32, 32, 35, 31, 40, 35, 54, 40, 37, 39, 40, 42, 27, 36, 26, 27, 44, 31, 33, 48, 40]
 total_questoes = 60
 
 # Nomes dos alunos
-nomes = ["Camila", "Marçal", "Paulo Vinicius", "João Willy", "Lucas Mendes", "Rodrigo", "William", "Veronica", "Sofia", "Davi Willian", "Deivison Costa", "Igor Lucena", "Alice", "Shay", "Breno", "Flavianny", "Vinicius", "Davi", "Osiel", "Eloísa", "Mauro", "Amanda", "Herik", "Jeiel"]
+nomes = ["Camila", "Marçal", "Paulo Vinicius", "João Willy", "Lucas Mendes", "Rodrigo", "William", "Veronica", "Sofia", "Davi Willian", "Deivison Costa", "Igor Lucena", "Alice", "Shay", "Breno", "Flavianny", "Vinicius", "Davi", "Osiel", "Eloísa", "Mauro", "Amanda", "Herik", "Jeiel", "Ellen", "Iranildo", "Ivanilda R", "Jamille S", "Hugo"]
 
 # Define a nota de corte
 nota_corte = 35
@@ -19,7 +19,8 @@ cores = ['green' if nota >= nota_corte else 'red' for nota in notas]
 notas_ordenadas, nomes_ordenados, cores_ordenadas = zip(*sorted(zip(notas, nomes, cores), reverse=True))
 
 # Cria o gráfico de barras
-plt.bar(range(len(nomes)), notas_ordenadas, color=cores_ordenadas)
+largura_barra = 0.7  # Ajuste conforme desejado
+plt.bar(range(len(nomes)), notas_ordenadas, color=cores_ordenadas, width=largura_barra)
 plt.xticks(range(len(nomes)), nomes_ordenados, rotation=90)
 plt.xlabel("Alunos")
 plt.ylabel("Notas")
